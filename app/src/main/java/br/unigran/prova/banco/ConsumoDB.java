@@ -51,10 +51,10 @@ public class ConsumoDB {
             Consumo consumo = new Consumo();
 
             consumo.setId(Integer.parseInt(query.getString(0)));
-            consumo.setQuiloAtual(query.getString(1));
-            consumo.setQuantAbast(query.getString(2));
+            consumo.setQuiloAtual(query.getFloat(1));
+            consumo.setQuantAbast(query.getFloat(2));
             consumo.setDia(query.getString(3));
-            consumo.setValor(query.getString(4));
+            consumo.setValor(query.getFloat(4));
 
             listaConsumo.add(consumo);
         }

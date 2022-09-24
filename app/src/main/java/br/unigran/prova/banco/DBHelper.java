@@ -15,10 +15,10 @@ public class DBHelper extends SQLiteOpenHelper {
         String querySQL =
                 "create table consumo(" +
                         "id integer primary key autoincrement," +
-                        "quiloAtual varchar(10)," +
-                        "quantAbast varchar(10)," +
+                        "quiloAtual float," +
+                        "quantAbast float," +
                         "dia varchar(10)," +
-                        "valor varchar(15))";
+                        "valor float)";
 
         sqLiteDatabase.execSQL(querySQL);
     }

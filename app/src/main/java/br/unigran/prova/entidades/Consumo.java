@@ -2,10 +2,10 @@ package br.unigran.prova.entidades;
 
 public class Consumo {
     private Integer id;
-    private String quiloAtual;
-    private String quantAbast;
+    private Float quiloAtual;
+    private Float quantAbast;
     private String dia;
-    private String valor;
+    private Float valor;
 
     public Integer getId() {
         return id;
@@ -15,19 +15,19 @@ public class Consumo {
         this.id = id;
     }
 
-    public String getQuiloAtual() {
+    public Float getQuiloAtual() {
         return quiloAtual;
     }
 
-    public void setQuiloAtual(String quiloAtual) {
+    public void setQuiloAtual(Float quiloAtual) {
         this.quiloAtual = quiloAtual;
     }
 
-    public String getQuantAbast() {
+    public Float getQuantAbast() {
         return quantAbast;
     }
 
-    public void setQuantAbast(String quantAbast) {
+    public void setQuantAbast(Float quantAbast) {
         this.quantAbast = quantAbast;
     }
 
@@ -39,11 +39,11 @@ public class Consumo {
         this.dia = dia;
     }
 
-    public String getValor() {
+    public Float getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(Float valor) {
         this.valor = valor;
     }
 

@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -115,10 +114,10 @@ public class MainActivity extends AppCompatActivity {
                 if (campoQuantAtual.getText().toString().isEmpty() || campoQuilAtual.getText().toString().isEmpty() || campoDia.getText().toString().isEmpty() || campoValor.getText().toString().isEmpty()) {
                     Toast.makeText(MainActivity.this, "Dados Inválidos!", Toast.LENGTH_SHORT).show();
                 } else {
-                    consumo.setQuantAbast(campoQuantAtual.getText().toString());
-                    consumo.setQuiloAtual(campoQuilAtual.getText().toString());
+                    consumo.setQuantAbast(Float.parseFloat(campoQuantAtual.getText().toString()));
+                    consumo.setQuiloAtual(Float.parseFloat(campoQuilAtual.getText().toString()));
                     consumo.setDia(campoDia.getText().toString());
-                    consumo.setValor(campoValor.getText().toString());
+                    consumo.setValor(Float.parseFloat(campoValor.getText().toString()));
 
                     consumoDB.inserir(consumo);
 

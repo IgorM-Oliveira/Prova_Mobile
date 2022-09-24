@@ -21,8 +21,7 @@
         android:textColorHint="#757575"
         app:layout_constraintEnd_toStartOf="@+id/quantAbast"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
@@ -40,8 +39,7 @@
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/quiloAtual"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/dia"
@@ -58,8 +56,7 @@
         android:textColorHint="#757575"
         app:layout_constraintEnd_toStartOf="@+id/valor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quiloAtual"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/quiloAtual" />
 
     <EditText
         android:id="@+id/valor"
@@ -76,33 +73,21 @@
         android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dia"
-        app:layout_constraintTop_toBottomOf="@+id/quantAbast"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/quantAbast" />
 
     <Button
         android:id="@+id/salvar"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="30dp"
-        android:text="@string/salvar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valor"
-        tools:ignore="MissingConstraints" />
-
-    <ListView
-        android:id="@+id/linearLayout"
-        android:layout_width="350dp"
-        android:layout_height="400dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:shadowColor="@color/black"
+        android:text="@string/salvar"
+        app:layout_constraintBottom_toTopOf="@+id/calculo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valor" />
 
     <TextView
         android:id="@+id/calculo"
@@ -113,8 +98,23 @@
         android:text="@string/calculo"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/salvar" />
+
+    <ListView
+        android:id="@+id/linearLayout"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
