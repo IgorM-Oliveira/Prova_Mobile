@@ -82,28 +82,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 new AlertDialog.Builder(view.getContext())
-                        .setMessage("Selecione uma Opção:")
-                        .setNegativeButton("Remover", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int j) {
-                                new AlertDialog.Builder(view.getContext())
-                                        .setMessage("Deseja realmente remover?")
-                                        .setPositiveButton("Remover", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialogInterface, int k) {
-                                                consumoDB.remover(listaConsumo.get(i).getId());
+                    .setMessage("Selecione uma Opção:")
+                    .setNegativeButton("Remover", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int j) {
+                            new AlertDialog.Builder(view.getContext())
+                                .setMessage("Deseja realmente remover?")
+                                .setPositiveButton("Remover", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int k) {
+                                        consumoDB.remover(listaConsumo.get(i).getId());
 
-                                                consumoDB.listar(listaConsumo);
-                                                adapter.notifyDataSetChanged();
+                                        consumoDB.listar(listaConsumo);
+                                        adapter.notifyDataSetChanged();
 
-                                                Toast.makeText(MainActivity.this, "Removido com Sucesso!", Toast.LENGTH_LONG).show();
-                                            }
-                                        })
-                                        .setNegativeButton("Cancelar", null)
-                                        .create().show();
-                            }
-                        })
-                        .create().show();
+                                        Toast.makeText(MainActivity.this, "Removido com Sucesso!", Toast.LENGTH_LONG).show();
+                                    }
+                                })
+                                .setNegativeButton("Cancelar", null)
+                                .create().show();
+                        }
+                    })
+                    .create().show();
                 return (false);
             }
         });
