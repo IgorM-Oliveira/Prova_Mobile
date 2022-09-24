@@ -31,21 +31,6 @@ public class ConsumoDB {
         conexao.close();
     }
 
-    public void editar(Consumo consumo) {
-        conexao = db.getWritableDatabase();
-
-        ContentValues valores = new ContentValues();
-
-        valores.put("quiloAtual", consumo.getQuiloAtual());
-        valores.put("quantAbast", consumo.getQuantAbast());
-        valores.put("dia", consumo.getDia());
-        valores.put("valor", consumo.getValor());
-
-        conexao.update("consumo", valores, "id=?", new String[]{consumo.getId().toString()});
-
-        conexao.close();
-    }
-
     public void remover(Integer id) {
         conexao = db.getWritableDatabase();
 

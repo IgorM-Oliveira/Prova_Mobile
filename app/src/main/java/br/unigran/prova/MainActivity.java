@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
     ConsumoDB consumoDB;
     Consumo consumo;
 
-    Boolean editarConsumo;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         listagemDados.setAdapter(adapter);
         consumoDB.listar(listaConsumo);
 
-        editarConsumo = false;
         campoQuantAtual.requestFocus();
 
         campoCalculo.setText(String.format("%.2f", calcularConsumo()));
@@ -72,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         consumo = null;
-        editarConsumo = false;
         campoQuantAtual.setText("");
         campoQuantAtual.requestFocus();
         campoQuilAtual.setText("");
@@ -88,20 +84,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 new AlertDialog.Builder(view.getContext())
                         .setMessage("Selecione uma Opção:")
-                        .setPositiveButton("Editar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int j) {
-                                editarConsumo = true;
-
-                                consumo = new Consumo();
-                                consumo.setId(listaConsumo.get(i).getId());
-
-                                campoQuantAtual.setText(listaConsumo.get(i).getQuantAbast());
-                                campoQuilAtual.setText(listaConsumo.get(i).getQuiloAtual());
-                                campoDia.setText(listaConsumo.get(i).getDia());
-                                campoValor.setText(listaConsumo.get(i).getValor());
-                            }
-                        })
                         .setNegativeButton("Remover", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int j) {
@@ -133,30 +115,19 @@ public class MainActivity extends AppCompatActivity {
                 if (campoQuantAtual.getText().toString().isEmpty() || campoQuilAtual.getText().toString().isEmpty() || campoDia.getText().toString().isEmpty() || campoValor.getText().toString().isEmpty()) {
                     Toast.makeText(MainActivity.this, "Dados Inválidos!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (editarConsumo == false) {
-                        consumo = new Consumo();
-                    }
-
                     consumo.setQuantAbast(campoQuantAtual.getText().toString());
                     consumo.setQuiloAtual(campoQuilAtual.getText().toString());
                     consumo.setDia(campoDia.getText().toString());
                     consumo.setValor(campoValor.getText().toString());
 
-                    if (editarConsumo) {
-                        consumoDB.editar(consumo);
+                    consumoDB.inserir(consumo);
 
-                        Toast.makeText(MainActivity.this, "Editado com Sucesso!", Toast.LENGTH_LONG).show();
-                    } else {
-                        consumoDB.inserir(consumo);
-
-                        Toast.makeText(MainActivity.this, "Salvo com Sucesso!", Toast.LENGTH_LONG).show();
-                    }
+                    Toast.makeText(MainActivity.this, "Salvo com Sucesso!", Toast.LENGTH_LONG).show();
 
                     consumoDB.listar(listaConsumo);
                     adapter.notifyDataSetChanged();
 
                     consumo = null;
-                    editarConsumo = false;
                     campoQuantAtual.setText("");
                     campoQuantAtual.requestFocus();
                     campoQuilAtual.setText("");
