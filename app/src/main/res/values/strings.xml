@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Prova</string>
+    <string name="app_name">Prova Mobile</string>
+    <string name="salvar">Salvar</string>
+    <string name="quiloAtual">Quilometragem Atual</string>
+    <string name="quantAbast">Quantidade Abastecida</string>
+    <string name="dia">Dia</string>
+    <string name="valor">Valor</string>
 </resources>
